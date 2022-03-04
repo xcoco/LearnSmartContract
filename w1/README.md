@@ -48,7 +48,8 @@ W2_2 作业
   npx hardhat verify 0x7Dc1eA054dC34e3b4893A76476F1287cf5D00464 --network rinkeby --contract contracts/w2_Score.sol:Teacher 0x201afC5d7ff111606094d407eD049354C0909b26
 
 > Successfully verified contract Bank on Etherscan.
-> https://rinkeby.etherscan.io/address/0x201afC5d7ff111606094d407eD049354C0909b26#code > https://rinkeby.etherscan.io/address/0x7Dc1eA054dC34e3b4893A76476F1287cf5D00464#code
+> https://rinkeby.etherscan.io/address/0x201afC5d7ff111606094d407eD049354C0909b26#code
+> https://rinkeby.etherscan.io/address/0x7Dc1eA054dC34e3b4893A76476F1287cf5D00464#code
 
 - 测试
   > enters.js 测试复杂 remix 内测试
