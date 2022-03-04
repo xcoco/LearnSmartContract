@@ -1,18 +1,59 @@
-# Basic Sample Hardhat Project
+# 作业
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+W2_1 作业：
 
-Try running some of the following tasks:
+- 编写⼀个 Bank 合约：
+- 通过 Metamask 向 Bank 合约转账 ETH
+- 在 Bank 合约记录每个地址转账⾦额
+- 编写 Bank 合约 withdraw(), 实现提取出所有的 ETH
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+作业路径指引:
+相关文件:
+合约: contracts/w2_bank.sol
+部署脚本: scripts/w2_bank_deploy.js
+测试脚本: test\w2_bank_test.js
+
+- 部署
+  npx hardhat run scripts/w2_bank_deploy.js --network rinkeby
+
+- 验证
+  npx hardhat verify 0xc5F2644C1Ea29f328347980E92344a92D5d6f852 --network rinkeby --contract contracts/w2_bank.sol:Bank
+
+> Successfully verified contract Bank on Etherscan.
+> https://rinkeby.etherscan.io/address/0xc5F2644C1Ea29f328347980E92344a92D5d6f852#code
+
+- 测试
+  > npx hardhat run .\test\w2_bank_test.js --network dev
+
+W2_2 作业
+
+- 编写合约 Score，⽤于记录学⽣（地址）分数：
+  - 仅有⽼师（⽤ modifier 权限控制）可以添加和修改学⽣分数
+  - 分数不可以⼤于 100；
+- 编写合约 Teacher 作为⽼师，通过 IScore 接⼝调⽤修改学⽣分数。
+
+作业路径指引:
+相关文件:
+合约: contracts/w2_Score.sol
+部署脚本: scripts/w2_score_deploy.js
+
+- 部署
+  npx hardhat run .\scripts\w2_score_deploy.js --network rinkeby
+
+  > score deployed to: 0x201afC5d7ff111606094d407eD049354C0909b26
+  > teacher deployed to: 0x7Dc1eA054dC34e3b4893A76476F1287cf5D00464
+
+- 验证
+  npx hardhat verify 0x201afC5d7ff111606094d407eD049354C0909b26 --network rinkeby --contract contracts/w2_Score.sol:Score
+  npx hardhat verify 0x7Dc1eA054dC34e3b4893A76476F1287cf5D00464 --network rinkeby --contract contracts/w2_Score.sol:Teacher 0x201afC5d7ff111606094d407eD049354C0909b26
+
+> Successfully verified contract Bank on Etherscan.
+> https://rinkeby.etherscan.io/address/0x201afC5d7ff111606094d407eD049354C0909b26#code > https://rinkeby.etherscan.io/address/0x7Dc1eA054dC34e3b4893A76476F1287cf5D00464#code
+
+- 测试
+  > enters.js 测试复杂 remix 内测试
+
+w1 作业
 
 部署到 rinkeby
 
