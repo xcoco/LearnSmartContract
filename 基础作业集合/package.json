@@ -8,6 +8,8 @@
     "hardhat": "^2.9.0"
   },
   "dependencies": {
-    "chai": "^4.3.6"
+    "@openzeppelin/contracts": "^4.5.0",
+    "chai": "^4.3.6",
+    "sqlite3": "^5.0.2"
   }
 }
