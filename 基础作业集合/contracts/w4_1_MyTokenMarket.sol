@@ -2,7 +2,6 @@
 pragma solidity ^0.8.0;
 
 import "./IUniswapV2Router01.sol";
-import "hardhat/console.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
@@ -44,7 +43,7 @@ contract MyTokenMarket {
         address[] memory path = new address[](2);
         path[0] = weth;
         path[1] = token;
-        IUniswapV2Router01(router).swapExactETHForTokens(
+        IUniswapV2Router01(router).swapExactETHForTokens{value: msg.value}(
             miniTokenAmount,
             path,
             msg.sender,

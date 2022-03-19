@@ -7,6 +7,25 @@
   - AddLiquidity():函数内部调用 UniswapV2Router 添加 MyToken 与 ETH 的流动性
   - buyToken()：用户可调用该函数实现购买 MyToken
 
+部署
+npx hardhat run .\scripts\w4_1_mytokenmarket_deploy.js --network rinkeby
+
+> ERC20 deployed to: 0xfd87Dd715d164c486f27E518a083687E509810EE
+> Market deployed to: 0x856bE00e6da147843294F0E66cC65C89a47abFcD
+
+验证:
+npx hardhat verify 0xfd87Dd715d164c486f27E518a083687E509810EE --network rinkeby --contract contracts/W3_1_ERCToken.sol:ChiFanToken
+npx hardhat verify 0x856bE00e6da147843294F0E66cC65C89a47abFcD --network rinkeby --contract contracts/w4_1_MyTokenMarket.sol:MyTokenMarket '0xfd87Dd715d164c486f27E518a083687E509810EE', '0xc778417e063141139fce010982780140aa0cd5ab', '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
+
+测试
+npx hardhat run .\test\w4_1_mytokenmarket_test.js --network rinkeby
+
+> ChiFanToken Contract address: 0xfd87Dd715d164c486f27E518a083687E509810EE
+> Current Wallet address: 0x222222f8685F4Fdec8f164cEdE16fE6572817a1A
+> 增发 balance: 9500.248873309964947421
+> 添加流动性后 balance: 9500.248873309964947421 // 由于区块打包的原因并没有及时生效
+> 购买 token 后 balance: 9500.248873309964947421
+
 ## W4_2 作业
 
 - 在上一次作业的基础上：

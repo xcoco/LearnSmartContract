@@ -4,7 +4,8 @@ require("@nomiclabs/hardhat-ganache");
 
 require('dotenv').config();
 
-const PRIVATE_KEY = process.env.PRIVATE_KEY;
+const PRIVATE_KEY = process.env.MAIN_PRIVATE_KEY;
+const HARDHAT_PRIVATE_KEY = process.env.HARDHAT_PRIVATE_KEY;
 const ALCHEMY_API_KEY = process.env.ALCHEMY_API_KEY
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
 
@@ -30,7 +31,8 @@ module.exports = {
   networks: {
     dev: {
       url: "http://127.0.0.1:8545",
-      chainId: 31337
+      chainId: 31337,
+      accounts: [`${HARDHAT_PRIVATE_KEY}`]
     },
     rinkeby: {
       url: `https://rinkeby.infura.io/v3/${ALCHEMY_API_KEY}`,
