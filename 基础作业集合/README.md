@@ -7,17 +7,21 @@
   - AddLiquidity():函数内部调用 UniswapV2Router 添加 MyToken 与 ETH 的流动性
   - buyToken()：用户可调用该函数实现购买 MyToken
 
-部署
+### 部署:
+
 npx hardhat run .\scripts\w4_1_mytokenmarket_deploy.js --network rinkeby
 
 > ERC20 deployed to: 0xfd87Dd715d164c486f27E518a083687E509810EE
 > Market deployed to: 0x856bE00e6da147843294F0E66cC65C89a47abFcD
 
-验证:
+### 验证:
+
 npx hardhat verify 0xfd87Dd715d164c486f27E518a083687E509810EE --network rinkeby --contract contracts/W3_1_ERCToken.sol:ChiFanToken
+
 npx hardhat verify 0x856bE00e6da147843294F0E66cC65C89a47abFcD --network rinkeby --contract contracts/w4_1_MyTokenMarket.sol:MyTokenMarket '0xfd87Dd715d164c486f27E518a083687E509810EE', '0xc778417e063141139fce010982780140aa0cd5ab', '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
 
-测试
+### 测试:
+
 npx hardhat run .\test\w4_1_mytokenmarket_test.js --network rinkeby
 
 > ChiFanToken Contract address: 0xfd87Dd715d164c486f27E518a083687E509810EE
@@ -31,6 +35,39 @@ npx hardhat run .\test\w4_1_mytokenmarket_test.js --network rinkeby
 - 在上一次作业的基础上：
   - 完成代币兑换后，直接质押 MasterChef
   - withdraw():从 MasterChef 提取 Token 方法
+
+### 部署
+
+部署 Shushi Token, MasterChef  
+npx hardhat run .\scripts\w4_2_sushimasterchef_deploy.js --network rinkeby  
+sushitoken deployed to: 0xc23b98723268418bB630B37251A8536585945661  
+npx hardhat verify 0xc23b98723268418bB630B37251A8536585945661 --network rinkeby --contract contracts/SushiToken.sol:SushiToken  
+MasterChef deployed to: 0x00DE7cfcF928eadE7bfe985CE0Ec6f086fd3538d  
+npx hardhat verify 0x00DE7cfcF928eadE7bfe985CE0Ec6f086fd3538d --network rinkeby --contract contracts/MasterChef.sol:MasterChef '0xc23b98723268418bB630B37251A8536585945661', '0x222222f8685F4Fdec8f164cEdE16fE6572817a1A', "10240000000000000000000000", '0', '0xF22222f8685F4Fdec8f164cEdE16fE6572817a1A'
+
+部署 market  
+npx hardhat run .\scripts\w4_1_mytokenmarket_deploy.js --network rinkeby  
+Market deployed to: 0x80ad3a2BB9bC2EbEe7951ECe82D493fbF0a2D7Cb  
+npx hardhat verify 0x80ad3a2BB9bC2EbEe7951ECe82D493fbF0a2D7Cb --network rinkeby --contract contracts/w4_1_MyTokenMarket.sol:MyTokenMarket '0xE003bCB637c3f290227E68a414c40f03a3909ef7', '0xc778417e063141139fce010982780140aa0cd5ab', '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D', '0x00DE7cfcF928eadE7bfe985CE0Ec6f086fd3538d', '0xc23b98723268418bB630B37251A8536585945661'
+
+### 测试
+
+npx hardhat run .\test\w4_2_masterchef_test.js --network rinkeby
+
+> ChiFanToken Contract address: 0xE003bCB637c3f290227E68a414c40f03a3909ef7  
+> MasterCheft address: 0x00DE7cfcF928eadE7bfe985CE0Ec6f086fd3538d  
+> Current Wallet address: 0x222222f8685F4Fdec8f164cEdE16fE6572817a1A
+
+### tx
+
+Add Liquidity  
+https://rinkeby.etherscan.io/tx/0x30acd034506c615d50e556825ff9118bdbb8009beec16fad2eaad977d97054b0  
+Buy Token  
+https://rinkeby.etherscan.io/tx/0xe11b40a29c1bfdb9c143225865dec817898ed1be519ef52e2d3f50fc9cd653b9  
+Buy Token  
+https://rinkeby.etherscan.io/tx/0x96a807b83635bcc737f773cd4d8093319b56d1458f7e4454bc20e2d6f92d1c7c  
+Withdraw  
+https://rinkeby.etherscan.io/tx/0x96a807b83635bcc737f773cd4d8093319b56d1458f7e4454bc20e2d6f92d1c7c
 
 ## W3_1 作业
 
