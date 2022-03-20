@@ -44,7 +44,7 @@ contract MyTokenMarket {
         );
     }
 
-    function WithAllTokens(address tokenaddr) private {
+    function WithTokens(address tokenaddr) private {
         uint256 balance = IERC20(tokenaddr).balanceOf(address(this));
         if (balance <= 0) {
             return;
@@ -53,8 +53,8 @@ contract MyTokenMarket {
     }
 
     function WithAllToken() private {
-        WithAllTokens(shushitoken);
-        WithAllTokens(token);
+        WithTokens(shushitoken);
+        WithTokens(token);
     }
 
     function BuyToken(uint256 miniTokenAmount) public payable {
