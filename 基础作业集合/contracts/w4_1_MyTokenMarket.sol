@@ -44,25 +44,17 @@ contract MyTokenMarket {
         );
     }
 
-    function WithAllShuShiTokens() private {
-        uint256 balance = IERC20(shushitoken).balanceOf(address(this));
+    function WithAllTokens(address tokenaddr) private {
+        uint256 balance = IERC20(tokenaddr).balanceOf(address(this));
         if (balance <= 0) {
             return;
         }
-        IERC20(shushitoken).transfer(msg.sender, balance);
-    }
-
-    function WithAllMyTokens() private {
-        uint256 balance = IERC20(token).balanceOf(address(this));
-        if (balance <= 0) {
-            return;
-        }
-        IERC20(token).transfer(msg.sender, balance);
+        IERC20(tokenaddr).transfer(msg.sender, balance);
     }
 
     function WithAllToken() private {
-        WithAllShuShiTokens();
-        WithAllMyTokens();
+        WithAllTokens(shushitoken);
+        WithAllTokens(token);
     }
 
     function BuyToken(uint256 miniTokenAmount) public payable {
