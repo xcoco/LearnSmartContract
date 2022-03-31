@@ -22,3 +22,14 @@ https://rinkeby.etherscan.io/tx/0xfe87cee524ad40d3abd969d0a3dffbfe08ffe32d766cfa
   - 在 AAVE 中借款 token A
   - 使用 token A 在 Uniswap V2 中交易兑换 token B，然后在 Uniswap V3 token B 兑换为 token A
   - token A 还款给 AAVE
+
+### 由于 AAVE 无法借到自己的 token, 题目将改成 A v2swap B B v3swap A
+
+合约见 [w5_2_borrow.sol](./w5_2_borrow.sol)
+
+从用户这借钱 w5_2_borrow.Borrowing
+然后 V2 swap 完 去 V3swap ,再还款
+
+https://rinkeby.etherscan.io/tx/0x0c39c1318ece82fe945468a2ebe903997815098b831a6a4dd234464c9a91217b
+
+![tx](./tx2.png)
